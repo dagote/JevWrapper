@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Example usage of the Jev client in Python."""
+"""Example usage of the JevWrapper client in Python."""
 
-from jev import JevClient, JevQuestions
+from jevwrapper import JevClient, JevQuestions
 
 
 def main():

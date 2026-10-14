@@ -1,11 +1,11 @@
-# Jev Python Client
+# JevWrapper Python Client
 
-Python client for the System One / Jev decision bridge.
+Python client wrapper for the Jev decision bridge (TypeSafe AI System One Model).
 
 ## Installation
 
 ```bash
-pip install jev
+pip install jevwrapper
 ```
 
 ## Usage

@@ -3,8 +3,8 @@
 import json
 import pytest
 
-from jev.protocol import build_request_json, build_state_text, parse_answer
-from jev.types import JevAnswer, JevQuestions, QuestionType
+from jevwrapper.protocol import build_request_json, build_state_text, parse_answer
+from jevwrapper.types import JevAnswer, JevQuestions, QuestionType
 
 
 class TestBuildStateText:

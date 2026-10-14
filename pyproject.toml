@@ -3,9 +3,9 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jev"
+name = "jevwrapper"
 version = "0.1.0"
-description = "Python client for System One / Jev decision bridge"
+description = "Python client wrapper for the Jev decision bridge (TypeSafe AI System One Model)"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
@@ -39,16 +39,16 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dagote/jev"
-Repository = "https://github.com/dagote/jev.git"
-Issues = "https://github.com/dagote/jev/issues"
+Homepage = "https://github.com/dagote/JevWrapper"
+Repository = "https://github.com/dagote/JevWrapper.git"
+Issues = "https://github.com/dagote/JevWrapper/issues"
 
 [tool.setuptools]
-packages = ["jev"]
+packages = ["jevwrapper"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=jev --cov-report=term-missing"
+addopts = "--cov=jevwrapper --cov-report=term-missing"
 
 [tool.black]
 line-length = 88

@@ -1,6 +1,6 @@
-# Jev Client Libraries
+# JevWrapper Client Libraries
 
-Multi-language client libraries for the System One / Jev decision bridge.
+Multi-language client wrappers for the Jev decision bridge (TypeSafe AI System One Model).
 
 ## Packages
 
@@ -8,7 +8,7 @@ Multi-language client libraries for the System One / Jev decision bridge.
 
 Install from PyPI:
 ```bash
-pip install jev
+pip install jevwrapper
 ```
 
 [See python/README.md](python/README.md) for documentation and usage.
@@ -19,22 +19,22 @@ For **Unity**, add the package via git URL in `Packages/manifest.json`:
 ```json
 {
   "dependencies": {
-    "ai.dagote.jev": "https://github.com/dagote/jev.git?path=dotnet/Jev#v0.1.0"
+    "ai.dagote.jevwrapper": "https://github.com/dagote/JevWrapper.git?path=dotnet/Jev#v0.1.0"
   }
 }
 ```
 
 For **regular .NET apps**, install from NuGet:
 ```bash
-dotnet add package ai.dagote.jev
+dotnet add package ai.dagote.jevwrapper
 ```
 
 ## Repository Structure
 
 ```
-jev/
+JevWrapper/
   python/
-    jev/              # Main package
+    jevwrapper/       # Main package
       __init__.py
       types.py        # Data models
       protocol.py     # Request/response logic
@@ -44,7 +44,7 @@ jev/
     pyproject.toml    # Package metadata
     README.md
   
-  dotnet/Jev/         # C# client library
+  dotnet/Jev/         # C# client wrapper library
     *.cs              # Source files
     Jev.csproj        # NuGet package metadata
     package.json      # Unity package metadata

@@ -1,4 +1,4 @@
-"""Jev client for Python - System One decision bridge."""
+"""JevWrapper client for Python - Jev (System One) decision bridge."""
 
 __version__ = "0.1.0"
 

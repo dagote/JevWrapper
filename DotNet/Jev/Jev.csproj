@@ -8,10 +8,10 @@
     <Nullable>enable</Nullable>
     
     <!-- Package metadata -->
-    <PackageId>ai.dagote.jev</PackageId>
+    <PackageId>ai.dagote.jevwrapper</PackageId>
     <Version>0.1.0</Version>
-    <Title>Jev Client</Title>
-    <Description>C# client for System One / Jev decision bridge</Description>
+    <Title>JevWrapper Client</Title>
+    <Description>C# client wrapper for the Jev decision bridge (TypeSafe AI System One Model)</Description>
     <Authors>Dagote</Authors>
     <PackageProjectUrl>https://github.com/dagote/jev</PackageProjectUrl>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
