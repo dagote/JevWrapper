@@ -1,0 +1,114 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e "python[dev]"
+      
+      - name: Run tests
+        run: |
+          cd python
+          pytest
+  
+  test-dotnet:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+      
+      - name: Restore dependencies
+        run: dotnet restore dotnet/Jev/Jev.csproj
+      
+      - name: Build
+        run: dotnet build dotnet/Jev/Jev.csproj --no-restore
+      
+      - name: Run tests
+        run: dotnet test dotnet/Jev/JevProtocolTests.cs --no-build
+  
+  publish-python:
+    needs: test-python
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: pypi
+      url: https://pypi.org/project/jev/
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+      
+      - name: Build package
+        run: |
+          cd python
+          python -m build
+      
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
+  
+  publish-dotnet:
+    needs: test-dotnet
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+      
+      - name: Get version from tag
+        id: tag
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Build NuGet package
+        run: |
+          dotnet pack dotnet/Jev/Jev.csproj \
+            -c Release \
+            -p:PackageVersion=${{ steps.tag.outputs.version }} \
+            -o nupkg
+      
+      - name: Publish to NuGet
+        run: |
+          dotnet nuget push nupkg/ai.dagote.jev.${{ steps.tag.outputs.version }}.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate

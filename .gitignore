@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.tox/
+.venv/
+venv/
+ENV/
+env/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.coverage
+.coverage.*
+htmlcov/
+
+# .NET / Visual Studio
+bin/
+obj/
+.vs/
+*.sln.DotSettings.user
+*.user
+*.userosscache
+*.sln.DotSettings
+.vscode/
+*.nupkg
+*.snupkg
+*.suo
+*.sln.iml
+packages/
+.nuget/
+
+# Unity
+Library/
+Temp/
+Logs/
+UserSettings/
+*.meta
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/

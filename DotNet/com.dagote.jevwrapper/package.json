@@ -1,0 +1,13 @@
+{
+  "name": "com.dagote.jevwrapper",
+  "displayName": "JevWrapper",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Unity wrapper for the System One / Jev decision bridge: push signals, ask choice questions, get typed answers.",
+  "author": {
+    "name": "dagote"
+  },
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
+  }
+}

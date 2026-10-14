@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>JevWrapper</RootNamespace>
+    <AssemblyName>JevWrapper</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    
+    <!-- Package metadata -->
+    <PackageId>ai.dagote.jev</PackageId>
+    <Version>0.1.0</Version>
+    <Title>Jev Client</Title>
+    <Description>C# client for System One / Jev decision bridge</Description>
+    <Authors>Dagote</Authors>
+    <PackageProjectUrl>https://github.com/dagote/jev</PackageProjectUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/dagote/jev.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <License>MIT</License>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
